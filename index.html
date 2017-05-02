@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<!-- Remy Sharp Shim -->
+	<!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<meta name="robots" content="noindex, nofollow" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	<link href="style.css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.4.custom/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="jquery-ui-1.11.4.custom/jquery-ui.theme.css" />
+	
+	
+	
+	<title>QBL</title>
+		
+	<!-- google fonts Open Sans -->
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic' rel='stylesheet' type='text/css'>
+
+	<!-- scripts -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+	<script src="scripts\js\imageMapResizer.min.js"></script>
+	<script src="jquery-ui-1.11.4.custom/jquery-ui.js"></script>
+	<script src="data.js"></script> <!--new data file - replace in final -->
+	<script src="qblDisplay.js"></script>
+
+	<script>
+		
+		
+		$(function() { /*begin onload */
+			
+			$( document ).tooltip({ //loads effect for divinatory meanings
+				show: {
+					effect: "slideDown",
+					delay: 75
+				},
+				track: true
+			});
+			
+		    $('map').imageMapResize(); //keeps map aligned with image during resize
+			
+			$('area').click(function () { //click events within the image map
+				var letterName = $(this).data('letter');
+				var letterData = qblData[letterName];
+				var data = extractData(letterData, letterName);	
+				createOutput(data[0], data[1], data[2], data[3]);				
+			});
+			
+			$('#about').click(function () {
+				clearContent();
+				$('.circle').css({'border':'none'});
+				$('#text-output').html(aboutData);
+			});
+		}) /*end onload */
+		
+		
+		
+		
+	</script>
+	
+
+</head>
+
+<body class="tree-of-life">
+	<header id="header">
+		<div class="wrapper">
+			<nav id="nav-main">
+				<ul>
+					<li><a href="http://lapis-mercurii.org">Home</a></li>
+					<li class="last" id="about"><a href="javascript:;">About</a></li>    
+				</ul>
+			</nav><!-- /main -->
+		</div><!-- /wrapper -->
+	</header>
+	<div id="main-content">
+		<div id="treeDiv">
+			<img src="images\TOL.jpg" alt="tree of life" usemap="#tolMap" id="tree">
+		</div>
+		<map name="tolMap">
+			<area shape="rect" coords="324,731,352,815" id="tau" data-letter="tau" title="ת"/>
+			<area shape="poly" coords="185,633,207,618,324,812,300,826" data-letter="shin" title="ש"/>
+			<area shape="poly" coords="469,621,491,631,378,827,356,815" data-letter="qoph" title="ק"/>
+			<area shape="poly" coords="225,593,298,635,285,659,212,617" data-letter="resh" title="ר"/>
+			<area shape="poly" coords="453,593,467,617,394,660,381,635" data-letter="tzaddi" title="צ"/>
+			<area shape="poly" coords="380,520,395,495,467,537,453,561" data-letter="nun" title="נ"/>
+			<area shape="poly" coords="285,495,298,521,224,561,208,537" data-letter="ayin" title="ע"/>
+			<area shape="poly" coords="212,423,224,399,298,439,283,464" data-letter="lamed" title="ל"/>
+			<area shape="poly" coords="453,398,467,422,394,463,380,440" data-letter="yod" title="י"/>
+			<area shape="poly" coords="187,242,210,228,289,366,257,365" data-letter="zain" title="ז"/>
+			<area shape="poly" coords="275,398,307,397,324,425,299,437" data-letter="zain" title="ז"/>
+			<area shape="poly" coords="469,228,493,242,420,367,388,365" data-letter="he" title="ה"/>
+			<area shape="poly" coords="370,396,403,396,378,438,355,425" data-letter="he" title="ה" />
+			<area shape="poly" coords="283,105,298,128,225,169,210,146" data-letter="beth" title="ב" />
+			<area shape="poly" coords="379,129,395,103,467,147,454,171" data-letter="aleph" title="א" />
+			<area shape="rect" coords="325,536,354,560" data-letter="samekh" title="ס" />
+			<area shape="rect" coords="324,592,353,618" data-letter="samekh" title="ס" />
+			<area shape="rect" coords="226,562,453,590" id="pe" data-letter="pe" title="פ" />
+			<area shape="rect" coords="496,438,522,522" id="kaph" data-letter="kaph" title="כ" />
+			<area shape="rect" coords="156,437,184,522" id="mem" data-letter="mem" title="מ" />
+			<area shape="rect" coords="226,368,451,397" id="teth" data-letter="teth" title="ט" />
+			<area shape="rect" coords="155,243,182,326" id="cheth" data-letter="cheth" title="ח" />
+			<area shape="rect" coords="494,241,523,325" id="vau" data-letter="vau" title="ו" />
+			<area shape="rect" coords="226,172,454,199" id="daleth" data-letter="daleth" title="ד" />
+			<area shape="rect" coords="326,143,352,171" data-letter="gimel" title="ג" />		
+			<area shape="rect" coords="326,203,352,366" data-letter="gimel" title="ג" />
+			<area shape="rect" coords="326,398,352,424" data-letter="gimel" title="ג" />
+			<area shape="circle" coords="340,871,55" id="malkuth" data-letter="malkuth" title="Malkuth">
+			<area shape="circle" coords="338,675,55" id="yesod" data-letter="yesod" title="Yesod">
+			<area shape="circle" coords="170,577,55" id="hod" data-letter="hod" title="Hod">
+			<area shape="circle" coords="509,577,55" id="netzach" data-letter="netzach" title="Netzach">
+			<area shape="circle" coords="335,480,55" id="tiphareth" data-letter="tiphareth" title="Tiphareth">
+			<area shape="circle" coords="168,382,55" id="geburah" data-letter="geburah" title="Geburah">
+			<area shape="circle" coords="508,381,55" id="chesed" data-letter="chesed" title="Chesed">
+			<area shape="circle" coords="168,186,55" id="binah" data-letter="binah" title="Binah">
+			<area shape="circle" coords="509,186,55" id="chokmah" data-letter="chokmah" title="Chokmah">
+			<area shape="circle" coords="339,88,55" id="kether" data-letter="kether" title="Kether">
+			<area shape="circle" coords="339,15,20" id="ain" data-letter="ain" title="Ain/Ain Soph/Ain Soph Aur">
+		</map>
+		<div id="output">
+			<div id="text-output">
+				
+			</div>
+			<div id="colors"> 
+				<div id="king" class="circle" title="King Scale"><canvas id="canvas" width="100" height="100"></canvas></div>
+				<div id="queen" class="circle" title="Queen Scale"></div>
+				<div id="emperor" class="circle" title="Emperor Scale"></div>
+				<div id="empress" class="circle" title="Empress Scale"></div>
+			</div>
+			<div id="tarot-card"></div>
+			<div id="clicker"></div>
+		</div> <!--output-->
+	</div> <!--main content-->
+</body>
+</html>

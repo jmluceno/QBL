@@ -1,0 +1,294 @@
+/* QBL Style Sheet */
+
+/* DEV TOOLS */
+/*  
+div, header, footer {
+	border: 1px solid red;
+}  */
+
+/* RESETS */
+body, body * {
+	margin: 0; 
+	padding: 0; 
+	box-sizing: border-box;	/* declared width = rendered width */
+}
+
+/* GLOBAL TEXT STYLES */
+
+html {
+	font-size: 16px; /* 1rem = 16px */
+}
+
+body {
+	font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+	font-size: 100%;
+	line-height: 1.6;
+	color: #000;
+}
+
+em { 
+	font-family:  'Open Sans', Helvetica, Arial, sans-serif;
+	font-style: italic;
+}
+
+strong, dt { 
+	font-family:  'Open Sans', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-weight: 700;
+}
+
+p, h2 {
+	padding-bottom: 20px;
+}
+
+/* HEADER */
+#header {
+	overflow: hidden;
+	background-color: #800080;	/* solid purple fallback for older browsers */
+	background: -moz-linear-gradient(left, #703131, #E0B0FF);
+	background: -o-linear-gradient(left, #703131, #E0B0FF);
+	background: linear-gradient(left, #703131, #E0B0FF);
+	background: -webkit-linear-gradient(left, #703131, #E0B0FF);
+	position: fixed;
+	z-index: 1000;
+	width: 100%;
+}
+
+/* LAYOUT */
+
+.wrapper {
+	margin: 0 auto; 
+	overflow: hidden;
+}
+
+a img {
+	border: none;	/* remove blue border from linked images in older versions of IE */
+}
+
+/* NAV STYLES */
+
+/* MAIN NAV */
+
+#nav-main {
+	overflow: hidden;		/* because its contents are floated */	
+	padding-right: 15px;
+}
+
+#nav-main ul {
+	float: right;
+	text-align: left;
+	text-transform: uppercase;
+	margin: 0;			/* reset global ul margins: adjust left margin as needed */
+	text-transform: uppercase;
+}
+
+
+#nav-main li {
+	float: left;
+	list-style-type: none;
+	margin-bottom: 0;
+}
+
+#nav-main a:link,
+#nav-main a:visited {
+	display: block;
+	text-decoration: none;
+	padding: 4px 0.9375em;
+	color: #000;
+}
+
+#nav-main a:hover, 
+#nav-main a:focus, 
+#nav-main a.current_page {
+	color: #FFF;
+	background: #000;	
+}
+
+/* CONTENT */
+
+#main-content { /* holds the tree and all output */
+	width: 100%;
+	clear: both;
+	padding-top: 30px;
+	overflow: hidden;
+}
+
+/* tree */
+#treeDiv {
+	width: 33.33333333%; /*of #main-content */
+	float: left;
+	height: auto;
+}
+#treeDiv img { 
+	width: 100%;
+	height: auto;
+	float: left;
+}
+
+/* output */
+#output {
+	float: left;
+	width: 66.66666666%;
+	overflow: hidden;
+	padding-top: 15px;
+	padding-right: 30px;
+}
+
+/* text portion of the output */
+#text-output {
+	float:left;
+	padding-right: 20px;
+	width: 50%; /* of output */
+	overflow: hidden;
+	padding-top: 15px; /* keep away from header */
+	font-size: .75em;
+	line-height: 1.2;
+}
+
+#text-output table {
+	width: 100%;
+	table-layout: fixed;
+}
+th#first {
+	width: 40%;
+}
+th#second{
+	width: 60%;
+}
+#text-output td {
+	padding-right: 30px;
+	padding-bottom: 10px;
+}
+
+/*bisClicker*/
+
+#bisClicker a:link,
+#bisClicker a:visited {
+	display: block;
+	text-decoration: none;
+	padding: 4px 0.9375em;
+	color: #000;
+}
+
+
+
+#bisClicker p {
+	display: block;
+	text-align: center;
+	font-size: 1em;
+	cursor: pointer;
+	padding: 4px 0.9375em;
+	color: #000;
+}
+#bisClicker p:hover, 
+#bisClicker p:focus {
+	color: #FFF;
+	background: #000;	
+}
+
+
+
+/* just the color circle */
+#colors {
+	width: 15%;
+	float: left;
+	padding-top: 15px; /* keep away from header */
+}
+.circle {
+	background-color: white;
+	border-radius: 50%;
+	width: 90px;
+	height: 90px;
+	/*border: 3px solid black;*/
+	display: none; /*start out invisible*/
+	margin-bottom: 55px;
+}
+
+canvas {
+	/*border: 5px solid red;*/
+}
+/* just the tarot */
+#tarot-card  {
+	float: left;
+	width: 35%;
+	padding-top: 15px;/* keep away from header */
+	overflow: hidden;
+}
+#tarot-card img {
+	width: 100%;
+	/*max-height: 721px;*/
+}
+
+/* toggle switch */
+#clicker {
+	text-align: center;
+	font-size: .75em;
+	width: 35%;
+	float: left;
+}
+
+#clicker a:link,
+#clicker a:visited {
+	display: block;
+	text-decoration: none;
+	padding: 4px 0.9375em;
+	color: #000;
+}
+
+#clicker a:hover, 
+#clicker a:focus {
+	color: #FFF;
+	background: #000;	
+}
+
+
+
+/* MEDIA QUERIES */
+
+@media (max-width: 1019px) {
+	#tarot-card {
+		float: none;
+		overflow: hidden;
+		clear: both;
+		width: 100%;
+	}
+	#text-output {
+		width: 75%;
+	}
+	#colors {
+		width: 25%;
+	}
+	
+	#clicker {
+		width: 100%;
+		margin: 0 auto 0 auto;
+	}
+	
+	
+}
+
+@media (max-width: 800px) {
+	#output {
+		float: none;
+		clear: both;
+		padding-left: 50px;
+		width: 100%;
+	}
+	#treeDiv {
+		float: none;
+		width: 100%;
+	}
+	
+	
+}
+
+@media (max-width: 450px) {
+	#colors {
+		float: none;
+		clear: both;
+		width: 100%;
+	}
+	#text-output {
+		width: 100%;
+	}
+}
